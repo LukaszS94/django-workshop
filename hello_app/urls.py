@@ -2,5 +2,7 @@ from django.urls import path
 from hello_app import views
 
 urlpatterns = [
-    path('world/', views.hello)
+    path("", views.hello),
+    path("param/<str:name>/", views.hello_name),
+    path("template/<str:name>/", views.hello_template)
 ]
