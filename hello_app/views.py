@@ -1,3 +1,5 @@
+import datetime
+
 from django.core.mail.message import sanitize_address
 from django.shortcuts import HttpResponse
 from django.utils.html import escape
@@ -16,4 +18,15 @@ def hello_name(request, name):
 
 def hello_template(request, name):
     # return HttpResponse("hello world")
-    return render(request, template_name="hello.html", context={"name":name})
+    return render(request, template_name="hello_app/hello.html", context={"name":name})
+
+
+def is_it_monday(request):
+    now = datetime.datetime.now()
+
+    is_monday = now.weekday() == 0
+
+    return render(
+        request,
+        template_name="hello_app/isitmonday.html",
+        context={"is_monday":is_monday})
