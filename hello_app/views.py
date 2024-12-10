@@ -30,3 +30,59 @@ def is_it_monday(request):
         request,
         template_name="hello_app/isitmonday.html",
         context={"is_monday":is_monday})
+
+
+def dtl(request):
+    fruits = [
+        "jabłko",
+        "banan",
+        "winogron",
+    ]
+    user = {
+        "name": "Jan",
+        "ussername": "Kowalski",
+        "age": 20
+    }
+
+    class Cow:
+        def __init__(self, name):
+            self.name = name
+
+    cowl = Cow("Mućka")
+
+
+    return render(
+        request,
+        template_name="hello_app/dtl.html",
+        context={
+            "fruits": fruits,
+            "user": user,
+            "cowl": cowl
+        }
+    )
+
+
+def first_view(request):
+    return render(
+        request, "hello_app/first.html"
+    )
+
+
+def second_view(request):
+    return render(
+        request, "hello_app/second.html"
+    )
+
+
+def third_view(request, param):
+    return render(
+        request, "hello_app/third.html", {"param": param}
+    )
+
+
+def child1_view(request):
+    return render(request, "hello_app/child1.html")
+
+
+def child2_view(request):
+    return render(request, "hello_app/child2.html")
