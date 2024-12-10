@@ -40,7 +40,7 @@ def dtl(request):
     ]
     user = {
         "name": "Jan",
-        "ussername": "Kowalski",
+        "username": "Kowalski",
         "age": 20
     }
 
@@ -86,3 +86,5 @@ def child1_view(request):
 
 def child2_view(request):
     return render(request, "hello_app/child2.html")
+
+
